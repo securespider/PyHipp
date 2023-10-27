@@ -12,3 +12,5 @@
 #SBATCH -e slurm.%N.%j.err # STDERR
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
+
+aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:392845375917:awsnotify --message "RS3JobDone"
