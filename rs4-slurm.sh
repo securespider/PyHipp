@@ -5,12 +5,13 @@
 #SBATCH --time=24:00:00   # walltime
 #SBATCH --ntasks=1   # number of processor cores (i.e. tasks)
 #SBATCH --nodes=1   # number of nodes
-#SBATCH --cpus-per-task=5      # number of processors per task
-#SBATCH -J "rs4"   # job name
+#SBATCH --cpus-per-task=5   # number of CPUs for this task
 
-## /SBATCH -p general # partition (queue)
+#SBATCH -J "rs4"   # job name
 #SBATCH -o rs4-slurm.%N.%j.out # STDOUT
 #SBATCH -e rs4-slurm.%N.%j.err # STDERR
+
+
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
 python -u -c "import PyHipp as pyh; \
@@ -26,4 +27,5 @@ DPT.objects.processDirs(level='channel', cmd='import PyHipp as pyh; from PyHipp 
 print(time.localtime()); \
 print(time.time()-t0);"
 
-aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:018084650241:awsnotify --message "RPLS4JobDone"
+aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:392845375917:awsnotify --message "RS4JobDone"
+
