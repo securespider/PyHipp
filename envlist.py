@@ -42,7 +42,7 @@ with lock:
         if pmode == WRITE_MODE:
             # append item to end of list
             clist.append(env)
-        else:
+        else:    
             # pop first item off list
             env = clist.pop(0)
             # return env name
