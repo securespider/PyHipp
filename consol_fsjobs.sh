@@ -6,7 +6,7 @@ cmd1="sbatch --dependency=afterok:"
 
 counter1=0
 for i in "${temp1[@]}"; do
-       if [[ "$i" == "compute" ]]; then
+       if [[ "$i" == "queue1" ]]; then
 	       id1=${temp1[$counter1-1]}
 	       cmd1="${cmd1}${id1}:"
        fi
