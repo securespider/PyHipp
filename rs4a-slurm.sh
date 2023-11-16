@@ -12,5 +12,11 @@
 #SBATCH -e rs4a-slurm.%N.%j.err # STDERR
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
-python -u -c "import PyHipp as pyh; import DataProcessingTools as DPT; import time; import os; t0 = time.time(); print(time.localtime()); os.chdir('session01'); DPT.objects.processDirs(dirs=None, objtype=pyh.RPLSplit, channel=[*range(97,125)], SkipHPC=False, HPCScriptsDir = '/data/src/PyHipp/', SkipLFP=False, SkipHighPass=False, SkipSort=False); print(time.localtime()); print(time.time()-t0);"
-aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:392845375917:awsnotify --message "RS4aJobDone"
+python -u -c "import PyHipp as pyh; 
+import DataProcessingTools as DPT; 
+import time; import os; t0 = time.time(); 
+print(time.localtime()); 
+os.chdir('session01'); 
+DPT.objects.processDirs(dirs=None, objtype=pyh.RPLSplit, channel=[*range(97,125)], SkipHPC=False, HPCScriptsDir = '/data/src/PyHipp/', SkipLFP=False, SkipHighPass=False, SkipSort=False); 
+print(time.localtime()); 
+print(time.time()-t0);"

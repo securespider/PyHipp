@@ -12,5 +12,7 @@
 #SBATCH -e rpllfp-slurm.%N.%j.err # STDERR
 
 # LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
-python -u -c "import PyHipp as pyh; import time; pyh.RPLLFP(saveLevel = 1); print(time.localtime());"
-aws sns publish --topic-arn arn:aws:sns:ap-southeast-1:392845375917:awsnotify --message "RPLLFPJobDone"
+python -u -c "import PyHipp as pyh; 
+import time; 
+pyh.RPLLFP(saveLevel = 1); 
+print(time.localtime());"
